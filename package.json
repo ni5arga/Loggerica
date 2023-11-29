@@ -6,8 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "discord-bot",
+    "logging",
+    "discord-bot-logging",
+    "discordjs"
+  ],
+  "author": "Nisarga Adhikary",
   "license": "GNU General Public License, version 2",
   "dependencies": {
     "@types/node": "^20.10.0",

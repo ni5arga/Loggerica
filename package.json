@@ -1,0 +1,18 @@
+{
+  "name": "Logerica Discord Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GNU General Public License, version 2",
+  "dependencies": {
+    "@types/node": "^20.10.0",
+    "discord.js": "^14.14.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}

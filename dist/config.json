@@ -1,0 +1,9 @@
+{
+    "token": "YOUR_BOT_TOKEN",
+    "prefix": "!",
+    "modLogChannelID": "MODLOG_CHANNEL_ID",
+    "messageLogChannelID": "MESSAGELOG_CHANNEL_ID",
+    "voiceLogChannelID": "VOICELOG_CHANNEL_ID",
+    "joinLeaveLogChannelID": "JOIN_LEAVE_LOG_CHANNELID"
+ }
+  

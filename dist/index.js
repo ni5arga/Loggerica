@@ -43,7 +43,7 @@ const client = new discord_js_1.Client({
     ],
 });
 client.once('ready', () => {
-    console.log('Logger is ready!');
+    console.log('Loggerica is ready!');
 });
 const createLogEmbed = (title, description, user, voiceChannel) => {
     const embed = new discord_js_2.EmbedBuilder()

@@ -1,10 +1,11 @@
 {
   "name": "Logerica Discord Bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A self-hostable discord bot to log various events in your server",
+   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [
     "discord-bot",

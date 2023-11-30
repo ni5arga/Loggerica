@@ -8,8 +8,8 @@ A powerful Discord bot to keep logs in your server.
 1. **Clone the Repository**
 
  ```bash
- git clone https://github.com/ni5arga/Loggerica.git
-  ```
+git clone https://github.com/ni5arga/Loggerica.git
+ ```
 2. **Change Directory & Install Dependencies**
 
 ```bash

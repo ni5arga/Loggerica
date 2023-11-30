@@ -94,4 +94,5 @@ npm start
 |----------------------|-----------------------------------------------------------|
 | voiceStateUpdate     | User joined/left/switched voice channel                    |
 
-
+# Contributing
+If you'd like to contribute to Loggerica, feel free to open an issue or submit a pull request on the GitHub repository. Any improvements are welcomed!

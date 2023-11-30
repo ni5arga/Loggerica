@@ -1,8 +1,10 @@
 # Loggerica
+
 A powerful Discord bot to keep logs in your server.
 
-# Logs the bot can keep
-> **ModLog Events**
+## Logs the bot can keep
+
+> **Moderator Log**
 
 | Event                | Event Description                                         |
 |----------------------|-----------------------------------------------------------|
@@ -11,11 +13,11 @@ A powerful Discord bot to keep logs in your server.
 | channelCreate        | Channel created                                           |
 | channelDelete        | Channel deleted                                           |
 | channelUpdate        | Channel permissions updated                               |
-| guildUpdate          | Server name/logo change                                   |
+| serverUpdate          | Server name/logo change                                   |
 | channelPinsUpdate    | Channel pins updated                                       |
-| guildBanAdd          | User banned from the guild                                |
-| guildBanRemove       | User unbanned from the guild                              |
-| guildIntegrationsUpdate | Guild integrations updated                              |
+| serverBanAdd          | User banned from the server                                |
+| serverBanRemove       | User unbanned from the server                              |
+| serverIntegrationsUpdate | Server integrations updated                              |
 | stickerCreate        | Sticker created                                           |
 | stickerDelete        | Sticker deleted                                           |
 | stickerUpdate        | Sticker updated                                           |
@@ -33,14 +35,14 @@ A powerful Discord bot to keep logs in your server.
 | webhookCreate        | Webhook created                                           |
 | webhookDelete        | Webhook deleted                                           |
 
-> **Join Leave Events**
+> **Member Joining Server & Leaving Server**
 
 | Event                | Event Description                                         |
 |----------------------|-----------------------------------------------------------|
-| guildMemberAdd       | Member joined                                             |
-| guildMemberRemove    | Member left                                               |
+| memberJoin       | Member joined                                             |
+| memberLeave    | Member left                                               |
 
-> **MessageLog Events**
+> **Message Events**
 
 | Event                | Event Description                                         |
 |----------------------|-----------------------------------------------------------|
@@ -51,10 +53,8 @@ A powerful Discord bot to keep logs in your server.
 | messageDeleteBulk    | Multiple messages deleted at once                         |
 | messageReactionRemoveAll | All reactions removed from a message                   |
 
-> **VoiceLog Events**
+> **Voice Channel Events**
 
 | Event                | Event Description                                         |
 |----------------------|-----------------------------------------------------------|
 | voiceStateUpdate     | User joined/left/switched voice channel                    |
-
-

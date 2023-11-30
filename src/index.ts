@@ -32,7 +32,7 @@ const client = new Client({
 });
 
 client.once('ready', () => {
-    console.log('Logger is ready!');
+    console.log('Loggerica is ready!');
 });
 
 const createLogEmbed = (title: string, description: string, user?: User, voiceChannel?: VoiceChannel) => {

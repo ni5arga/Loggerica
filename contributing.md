@@ -4,8 +4,7 @@ Thank you for considering contributing to Loggerica! This document outlines some
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to opensource@nisarga.me.
-
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. 
 ## How to Contribute
 
 1. Fork the repository.

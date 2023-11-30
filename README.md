@@ -18,7 +18,7 @@ npm install
 ```
 
 3. **Configuring the Bot**
-Create a `config.json` file in the `./dist` directory with the following structure:
+Create a `config.json` file in the root directory with the following structure and replace them with your own values :
 
 ```json
 {

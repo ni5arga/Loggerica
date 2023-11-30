@@ -371,9 +371,9 @@ client.on('messageDeleteBulk', (messages) => {
     const author = messages.first()?.author || undefined;
     const embed = createLogEmbed('Bulk Message Delete', `Bulk deleted messages in ${channelName}:\n${messages.size} messages deleted`, author);
     embed.setColor('Red');
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel) {
-        modLogChannel.send({ embeds: [embed] });
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID);
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
     }
 });
 client.on('messageReactionRemoveAll', (message) => {
@@ -381,9 +381,9 @@ client.on('messageReactionRemoveAll', (message) => {
     const channelName = channel ? `#${channel.name}` : 'Direct Message';
     const embed = createLogEmbed('All Reactions Removed', `All reactions removed from a message in ${channelName}:\n[Jump to Message](${message.url})`);
     embed.setColor('Orange');
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel) {
-        modLogChannel.send({ embeds: [embed] });
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID);
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
     }
 });
 client.on('webhookCreate', (webhook) => {

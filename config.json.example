@@ -1,0 +1,8 @@
+{
+    "token": "123456789",
+    "prefix": "!",
+    "modLogChannelID": "123457584",
+    "messageLogChannelID": "23823821198",
+    "voiceLogChannelID": "13213271237",
+    "joinLeaveLogChannelID": "238183190321"
+}

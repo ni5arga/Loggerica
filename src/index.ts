@@ -490,9 +490,9 @@ client.on('messageDeleteBulk', (messages) => {
     );
     embed.setColor('Red');
 
-    const modLogChannel = client.channels.cache.get(modLogChannelID) as TextChannel | undefined;
-    if (modLogChannel) {
-        modLogChannel.send({ embeds: [embed] });
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID) as TextChannel | undefined;
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
     }
 });
 
@@ -506,9 +506,9 @@ client.on('messageReactionRemoveAll', (message) => {
     );
     embed.setColor('Orange');
 
-    const modLogChannel = client.channels.cache.get(modLogChannelID) as TextChannel | undefined;
-    if (modLogChannel) {
-        modLogChannel.send({ embeds: [embed] });
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID) as TextChannel | undefined;
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
     }
 });
 

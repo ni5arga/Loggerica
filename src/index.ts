@@ -515,22 +515,22 @@ client.on('messageReactionRemoveAll', (message) => {
 client.on('webhookCreate', (webhook) => {
     const embed = createLogEmbed('Webhook Created', `Webhook created: ${webhook.name}`);
     embed.setColor('DarkOrange');
-
-    const modLogChannel = client.channels.cache.get(modLogChannelID) as TextChannel | undefined;
-    if (modLogChannel) {
+ 
+    const modLogChannel = client.channels.cache.get(modLogChannelID);
+    if (modLogChannel instanceof TextChannel) {
         modLogChannel.send({ embeds: [embed] });
     }
-});
-
-client.on('webhookDelete', (webhook) => {
+ });
+ 
+ client.on('webhookDelete', (webhook) => {
     const embed = createLogEmbed('Webhook Deleted', `Webhook deleted: ${webhook.name}`);
     embed.setColor('DarkOrange');
-
-    const modLogChannel = client.channels.cache.get(modLogChannelID) as TextChannel | undefined;
-    if (modLogChannel) {
+ 
+    const modLogChannel = client.channels.cache.get(modLogChannelID);
+    if (modLogChannel instanceof TextChannel) {
         modLogChannel.send({ embeds: [embed] });
     }
-});
+ });
 
 
 

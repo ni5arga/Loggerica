@@ -1,6 +1,6 @@
 # Loggerica
 
-A powerful Discord bot to keep logs in your server.
+Loggerica is a powerful Discord bot designed to keep logs in your server. Whether it's tracking moderator actions, member events, message activities, or voice channel movements, Loggerica is here to provide comprehensive logging for your Discord server.
 
 ## Self Hosting Instructions 
 

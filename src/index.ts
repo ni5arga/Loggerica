@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits, TextChannel, VoiceChannel } from 'discord.js';
-import { EmbedBuilder } from 'discord.js';
+import { EmbedBuilder } from 'discord.js'; 
 import * as fs from 'fs';
 import { User } from 'discord.js';
 import { Message } from 'discord.js';
@@ -23,6 +23,7 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildMessageReactions, 
     ],
 });
 
@@ -69,6 +70,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     const newChannel = newState.channel;
     const member = newState.member;
 
+    // Check if the user left a voice channel
     if (oldChannel && !newChannel && member) {
         const embed = createLogEmbed(
             'Voice State Update',
@@ -82,6 +84,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             voiceLogChannel.send({ embeds: [embed] });
         }
     } else if (!oldChannel && newChannel && member) {
+        // User joined a voice channel
         const embed = createLogEmbed(
             'Voice State Update',
             `${member.user.tag} joined voice channel`,
@@ -163,5 +166,40 @@ client.on('guildMemberRemove', (member) => {
         joinLeaveLogChannel.send({ embeds: [embed] });
     }
 });
+
+client.on('messageReactionAdd', (reaction, user) => {
+    const channel = reaction.message.guild?.channels.cache.get(reaction.message.channel.id);
+    const channelName = channel ? `#${channel.name}` : 'Direct Message';
+
+    const embed = createLogEmbed(
+        'Reaction Added',
+        `${user.tag} added reaction ${reaction.emoji} to a message in ${channelName}:\n[Jump to Message](${reaction.message.url})`,
+        user as User
+    );
+    embed.setColor('Yellow');
+
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID) as TextChannel | undefined;
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
+    }
+});
+
+client.on('messageReactionRemove', (reaction, user) => {
+    const channel = reaction.message.guild?.channels.cache.get(reaction.message.channel.id);
+    const channelName = channel ? `#${channel.name}` : 'Direct Message';
+
+    const embed = createLogEmbed(
+        'Reaction Removed',
+        `${user.tag} removed reaction ${reaction.emoji} from a message in ${channelName}:\n[Jump to Message](${reaction.message.url})`,
+        user as User
+    );
+    embed.setColor('Orange');
+
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID) as TextChannel | undefined;
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
+    }
+});
+
 
 client.login(token);

@@ -24,7 +24,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
-const discord_js_2 = require("discord.js"); 
+const discord_js_2 = require("discord.js");
+const fs = __importStar(require("fs"));
 const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
 const { token, modLogChannelID, messageLogChannelID, voiceLogChannelID, joinLeaveLogChannelID } = config;
 const client = new discord_js_1.Client({
@@ -34,6 +35,7 @@ const client = new discord_js_1.Client({
         discord_js_1.GatewayIntentBits.MessageContent,
         discord_js_1.GatewayIntentBits.GuildMembers,
         discord_js_1.GatewayIntentBits.GuildVoiceStates,
+        discord_js_1.GatewayIntentBits.GuildMessageReactions,
     ],
 });
 client.once('ready', () => {
@@ -131,6 +133,26 @@ client.on('guildMemberRemove', (member) => {
     embed.setColor('Red');
     if (joinLeaveLogChannel) {
         joinLeaveLogChannel.send({ embeds: [embed] });
+    }
+});
+client.on('messageReactionAdd', (reaction, user) => {
+    const channel = reaction.message.guild?.channels.cache.get(reaction.message.channel.id);
+    const channelName = channel ? `#${channel.name}` : 'Direct Message';
+    const embed = createLogEmbed('Reaction Added', `${user.tag} added reaction ${reaction.emoji} to a message in ${channelName}:\n[Jump to Message](${reaction.message.url})`, user);
+    embed.setColor('Yellow');
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID);
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
+    }
+});
+client.on('messageReactionRemove', (reaction, user) => {
+    const channel = reaction.message.guild?.channels.cache.get(reaction.message.channel.id);
+    const channelName = channel ? `#${channel.name}` : 'Direct Message';
+    const embed = createLogEmbed('Reaction Removed', `${user.tag} removed reaction ${reaction.emoji} from a message in ${channelName}:\n[Jump to Message](${reaction.message.url})`, user);
+    embed.setColor('Orange');
+    const messageLogChannel = client.channels.cache.get(messageLogChannelID);
+    if (messageLogChannel) {
+        messageLogChannel.send({ embeds: [embed] });
     }
 });
 client.login(token);

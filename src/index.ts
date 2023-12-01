@@ -23,7 +23,6 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildEmojisAndStickers,
         GatewayIntentBits.GuildInvites,
-        GatewayIntentBits.GuildWebhooks,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildVoiceStates,
         GatewayIntentBits.GuildMessageReactions,
@@ -511,27 +510,5 @@ client.on('messageReactionRemoveAll', (message) => {
         messageLogChannel.send({ embeds: [embed] });
     }
 });
-
-client.on('webhookCreate', (webhook) => {
-    const embed = createLogEmbed('Webhook Created', `Webhook created: ${webhook.name}`);
-    embed.setColor('DarkOrange');
- 
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel instanceof TextChannel) {
-        modLogChannel.send({ embeds: [embed] });
-    }
- });
- 
- client.on('webhookDelete', (webhook) => {
-    const embed = createLogEmbed('Webhook Deleted', `Webhook deleted: ${webhook.name}`);
-    embed.setColor('DarkOrange');
- 
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel instanceof TextChannel) {
-        modLogChannel.send({ embeds: [embed] });
-    }
- });
-
-
 
 client.login(token);

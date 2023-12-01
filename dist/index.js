@@ -35,7 +35,6 @@ const client = new discord_js_1.Client({
         discord_js_1.GatewayIntentBits.MessageContent,
         discord_js_1.GatewayIntentBits.GuildEmojisAndStickers,
         discord_js_1.GatewayIntentBits.GuildInvites,
-        discord_js_1.GatewayIntentBits.GuildWebhooks,
         discord_js_1.GatewayIntentBits.GuildMembers,
         discord_js_1.GatewayIntentBits.GuildVoiceStates,
         discord_js_1.GatewayIntentBits.GuildMessageReactions,
@@ -386,20 +385,5 @@ client.on('messageReactionRemoveAll', (message) => {
         messageLogChannel.send({ embeds: [embed] });
     }
 });
-client.on('webhookCreate', (webhook) => {
-    const embed = createLogEmbed('Webhook Created', `Webhook created: ${webhook.name}`);
-    embed.setColor('DarkOrange');
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel instanceof discord_js_1.TextChannel) {
-        modLogChannel.send({ embeds: [embed] });
-    }
-});
-client.on('webhookDelete', (webhook) => {
-    const embed = createLogEmbed('Webhook Deleted', `Webhook deleted: ${webhook.name}`);
-    embed.setColor('DarkOrange');
-    const modLogChannel = client.channels.cache.get(modLogChannelID);
-    if (modLogChannel instanceof discord_js_1.TextChannel) {
-        modLogChannel.send({ embeds: [embed] });
-    }
-});
+
 client.login(token);

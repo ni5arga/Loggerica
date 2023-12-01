@@ -67,8 +67,6 @@ npm start
 | stageInstanceCreate  | Stage instance created                                    |
 | stageInstanceUpdate  | Stage instance updated                                    |
 | stageInstanceDelete  | Stage instance deleted                                    |
-| webhookCreate        | Webhook created                                           |
-| webhookDelete        | Webhook deleted                                           |
 
 > **Member Joining Server & Leaving Server**
 
